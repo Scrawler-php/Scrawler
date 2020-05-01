@@ -2,11 +2,13 @@
     "require": {
         "symfony/event-dispatcher": "^4.1",
         "symfony/http-kernel": "^4.1",
-        "scrawler/router": "^2.0"
+        "scrawler/router": "^2.0",
+        "filp/whoops": "^2.7",
+        "gabordemooij/redbean": "dev-master"
     },
     "autoload": {
        "psr-4": {
-         "App\\": "modules/app",
+         "App\\": "app",
          "Scrawler\\": "core",
          "Scrawler\\Modules\\": "modules"
        }

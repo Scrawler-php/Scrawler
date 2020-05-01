@@ -15,6 +15,9 @@ use Symfony\Component\EventDispatcher\EventDispatcher;
 use Symfony\Component\EventDispatcher\Event;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
+use Scrawler\Service\Database;
+use Scrawler\Service\Module;
+
 
 class Scrawler
 {
@@ -43,13 +46,26 @@ class Scrawler
     private $module;
 
     /**
+     * Stores the database
+     */
+    private  $db;
+
+    /**
+     * Stores the configuration form config.ini
+     */
+    public $config;
+
+
+    /**
      * Initialize all the needed functionalities
      */
     public function __construct()
-    {
+    { 
+        $this->config = parse_ini_file(__DIR__."/../config.ini",true);
         self::$scrawler = $this;
         $this->request = Request::createFromGlobals();
-        $this->routeCollection = new RouteCollection(__DIR__.'/../modules/app/controllers', 'App\Controllers');
+        $this->db = new Database();
+        $this->routeCollection = new RouteCollection(__DIR__.'/../app/controllers', 'App\Controllers');
         $this->dispatcher = new EventDispatcher();
         $this->module = new Module();
         $this->registerCoreListners();
@@ -83,18 +99,30 @@ class Scrawler
      * Returns module object
      * @return Object Request
      */
-    public function &request()
+    public function &module()
     {
         return $this->module;
     }
+
+    /**
+     * Returns database object
+     * @return Object Request
+     */
+    public function &db(){
+        return $this->db;
+    }
+
+
     /**
      * Returns scrawler class object
      * @return Object Scrawler\Scrawler
      */
-    public static function engine()
+    public static function &engine()
     {
-        return self::scrawler;
+        return self::$scrawler;
     }
+
+
 
     /**
      * Register few core event listners
@@ -118,4 +146,6 @@ class Scrawler
             }
         });
     }
+
+
 }

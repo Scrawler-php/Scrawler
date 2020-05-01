@@ -5,7 +5,7 @@
  * @package: Scrawler
  * @author: Pranjal Pandey
  */
-namespace Scrawler;
+namespace Scrawler\Service;
 
 use Scrawler\Scrawler;
 
@@ -30,7 +30,7 @@ class Module
         $files = array_slice(scandir($this->modules[$currentModule][2]), 2);
         foreach ($files as $file) {
             if ($file != 'Main.php') {
-                Scrawler::engine()->router()(\basename($file, '.php'), $this->modules[$currentModule][1] . '\\' . \basename($file, '.php'));
+                Scrawler::engine()->router()->registerController(\basename($file, '.php'), $this->modules[$currentModule][1] . '\\' . \basename($file, '.php'));
             }
         }
     }
