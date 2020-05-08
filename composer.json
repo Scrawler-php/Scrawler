@@ -4,7 +4,8 @@
         "symfony/http-kernel": "^4.1",
         "scrawler/router": "^2.0",
         "filp/whoops": "^2.7",
-        "gabordemooij/redbean": "dev-master"
+        "gabordemooij/redbean": "dev-master",
+        "eftec/bladeone": "^3.43"
     },
     "autoload": {
        "psr-4": {

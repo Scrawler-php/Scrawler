@@ -17,6 +17,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Scrawler\Service\Database;
 use Scrawler\Service\Module;
+Use eftec\bladeone\BladeOne;
 
 
 class Scrawler
@@ -55,6 +56,11 @@ class Scrawler
      */
     public $config;
 
+    /**
+     * Stores the template
+     */
+    private  $template;
+
 
     /**
      * Initialize all the needed functionalities
@@ -68,6 +74,12 @@ class Scrawler
         $this->routeCollection = new RouteCollection(__DIR__.'/../app/controllers', 'App\Controllers');
         $this->dispatcher = new EventDispatcher();
         $this->module = new Module();
+       
+        //templateing engine
+        $views = __DIR__ . '/views';
+        $cache = __DIR__ . '/cache';
+        $this->template = new BladeOne($views,$cache,BladeOne::MODE_AUTO);
+
         $this->registerCoreListners();
     }
 
@@ -111,6 +123,23 @@ class Scrawler
     public function &db(){
         return $this->db;
     }
+
+    /**
+     * Returns templating engine object
+     * @return Object Request
+     */
+    public function &template(){
+        return $this->template;
+    }
+
+    /**
+     * Returns templating engine object
+     * @return Object Request
+     */
+    public function &t(){
+        return $this->template;
+    }
+
 
 
     /**
