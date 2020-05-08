@@ -1,6 +1,6 @@
 <?php
 /**
- * Scarawler core container
+ * Scarawler Database Service
  *
  * @package: Scrawler
  * @author: Pranjal Pandey
@@ -12,31 +12,35 @@ use Scrawler\Scrawler;
 
 class Database extends \R{
 
-    public function __construct(){
+    public static function new(){
         self::setup('mysql:host='.Scrawler::engine()->config['database']['host'].';dbname='.Scrawler::engine()->config['database']['database'], Scrawler::engine()->config['database']['username'], Scrawler::engine()->config['database']['password']);
+        return new Self();
     }
 
-    public function create($name){
+    public static function create($name){
         return self::dispense($name);
     }
 
-    public function save($model){
+    public static function save($model){
         return self::store($model);
     }
 
-    public function get($model,$id){
-         return self::load($model,$id);
+
+
+    public static function __callStatic($name, $arguments) { 
+        if ($name == 'get') {
+            if(count($arguments) == 2)
+            return self::load($arguments[0], $arguments[1]);
+            if(count($arguments) == 1)
+            return self::findAll($arguments[0]);
+        }
+            return parent::__callStatic($name, $arguments);
+        
     }
 
-    public function delete($model){
+    public static function delete($model){
          return self::trash($model);
     }
 
-//     public function find($model,$query=null,$binding=null){
-//          return self::find($model,$query,$binding);
-//     }
 
-//     public function findOne($model,$query=null,$binding=null){
-//         return self::find($model,$query,$binding);
-//    }
 }

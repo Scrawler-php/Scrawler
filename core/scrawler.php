@@ -17,7 +17,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Scrawler\Service\Database;
 use Scrawler\Service\Module;
-Use eftec\bladeone\BladeOne;
+use Scrawler\Service\Template;
 
 
 class Scrawler
@@ -49,7 +49,7 @@ class Scrawler
     /**
      * Stores the database
      */
-    private  $db;
+    public static $db;
 
     /**
      * Stores the configuration form config.ini
@@ -70,15 +70,15 @@ class Scrawler
         $this->config = parse_ini_file(__DIR__."/../config.ini",true);
         self::$scrawler = $this;
         $this->request = Request::createFromGlobals();
-        $this->db = new Database();
+        self::$db = Database::new();
         $this->routeCollection = new RouteCollection(__DIR__.'/../app/controllers', 'App\Controllers');
         $this->dispatcher = new EventDispatcher();
         $this->module = new Module();
        
         //templateing engine
-        $views = __DIR__ . '/views';
-        $cache = __DIR__ . '/cache';
-        $this->template = new BladeOne($views,$cache,BladeOne::MODE_AUTO);
+        $views = __DIR__ . '/../app/views';
+        $cache = __DIR__ . '/../cache/templates';
+        $this->template = new Template($views,$cache);
 
         $this->registerCoreListners();
     }
@@ -120,8 +120,8 @@ class Scrawler
      * Returns database object
      * @return Object Request
      */
-    public function &db(){
-        return $this->db;
+    public static function &db(){
+        return self::$db;
     }
 
     /**
