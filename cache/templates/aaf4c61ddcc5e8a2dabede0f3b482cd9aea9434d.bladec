@@ -1,5 +1,0 @@
-<h1 ><?php echo 'Hello '.($user); ?></h1>
-
-<?php /* <?php if($greet): ?>
-<p> greetings </p>
-<?php endif; ?> */ ?>
