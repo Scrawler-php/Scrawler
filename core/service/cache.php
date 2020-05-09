@@ -28,7 +28,7 @@ Class Cache {
     function __construct(){
         if (Scrawler::engine()->config['memcahe']['enabled']) {
             $this->memcache = new \Memcached();
-            $this->memcache->addServer("127.0.0.1", 11211);
+            $this->memcache->addServer(Scrawler::engine()->config['memcahe']['host'], Scrawler::engine()->config['memcahe']['port']);
         }
         $this->location = __DIR__.'/../../cache/core/';
     }
@@ -48,7 +48,7 @@ Class Cache {
         }
 
          if ($type == 'memory' &&  Scrawler::engine()->config['memcahe']['enabled']) {
-             return $memcache->set($key, $value);
+             return $this->memcache->set($key, $value);
          }
 
          return false;
@@ -64,7 +64,7 @@ Class Cache {
     function get($key,$type = 'file'){
 
         if($type == 'memory' && Scrawler::engine()->config['memcahe']['enabled']) {
-            return $memcache->get($key);
+            return $this->memcache->get($key);
         }
 
         if($type == 'file'){
