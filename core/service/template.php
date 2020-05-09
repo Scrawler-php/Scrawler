@@ -17,15 +17,14 @@ class Template extends BladeOne{
         parent::__construct($view,$cache,BladeOne::MODE_AUTO);
     }
 
+    /**
+     * Render the template
+     * 
+     * @param String $view to render
+     * @param array $variables to pass to view
+     */
     function render($view,$variables=[]){
         return $this->run($view,$variables);
     }
 
-    public function compileHello($expression=null)
-    {
-        if ($expression===null || $expression==='()') {
-            return "<?php echo '--empty--'; ?>";
-        }
-        return "<?php echo 'Hello '.$expression; ?>";
-    }
 }
