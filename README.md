@@ -5,7 +5,9 @@ PHP framework for Rapid Application Development keeping high speed and automated
 Usage
 ------
 1. clone this repo and install packages
+
 `git clone git@github.com:Corpusvision/Scrawler.git`
+
 `composer install`
 
 2. Start writing your logic inside `/app/controllers`. everything else would be taken care by framework itself!
