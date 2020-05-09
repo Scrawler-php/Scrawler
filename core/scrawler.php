@@ -18,6 +18,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Scrawler\Service\Database;
 use Scrawler\Service\Module;
 use Scrawler\Service\Template;
+use Scrawler\Service\Cache;
 
 
 class Scrawler
@@ -49,7 +50,12 @@ class Scrawler
     /**
      * Stores the database
      */
-    public static $db;
+    private static $db;
+
+    /**
+     * Stores cache object
+     */
+    private $cache;
 
     /**
      * Stores the configuration form config.ini
@@ -69,6 +75,7 @@ class Scrawler
     { 
         $this->config = parse_ini_file(__DIR__."/../config.ini",true);
         self::$scrawler = $this;
+        $this->cache = new Cache();
         $this->request = Request::createFromGlobals();
         self::$db = Database::new();
         $this->routeCollection = new RouteCollection(__DIR__.'/../app/controllers', 'App\Controllers');
@@ -91,6 +98,16 @@ class Scrawler
     {
         return $this->dispatcher;
     }
+
+    /**
+     * returns cache object
+     * @return Object \Scrawler\Service\Cache
+     */
+    public function &cache()
+    {
+        return $this->cache;
+    }
+
     /**
      * Returns route collection object
      * @return Object RouteCollection
@@ -99,6 +116,7 @@ class Scrawler
     {
         return $this->routeCollection;
     }
+
     /**
      * Returns request object
      * @return Object Request
@@ -107,9 +125,10 @@ class Scrawler
     {
         return $this->request;
     }
+
     /**
      * Returns module object
-     * @return Object Request
+     * @return Object \Scrawler\Service\Module
      */
     public function &module()
     {
@@ -118,7 +137,7 @@ class Scrawler
 
     /**
      * Returns database object
-     * @return Object Request
+     * @return Object \Scrawler\Service\Database
      */
     public static function &db(){
         return self::$db;
@@ -126,7 +145,7 @@ class Scrawler
 
     /**
      * Returns templating engine object
-     * @return Object Request
+     * @return Object \Scrawler\Service\Template
      */
     public function &template(){
         return $this->template;
@@ -134,7 +153,7 @@ class Scrawler
 
     /**
      * Returns templating engine object
-     * @return Object Request
+     * @return Object \Scrawler\Service\Template
      */
     public function &t(){
         return $this->template;

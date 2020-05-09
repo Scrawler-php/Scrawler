@@ -26,8 +26,10 @@ Class Cache {
      * Constructor overload
      */
     function __construct(){
-        $this->memcache = new Memcached();
-        $this->memcache->addServer("127.0.0.1", 11211);
+        if (Scrawler::engine()->config['memcahe']['enabled']) {
+            $this->memcache = new \Memcached();
+            $this->memcache->addServer("127.0.0.1", 11211);
+        }
         $this->location = __DIR__.'/../../cache/core/';
     }
 
@@ -45,9 +47,11 @@ Class Cache {
             return file_put_contents($this->location.$key.'.cache', serialize($value));
         }
 
-         if ($type == 'memory') {
+         if ($type == 'memory' &&  Scrawler::engine()->config['memcahe']['enabled']) {
              return $memcache->set($key, $value);
          }
+
+         return false;
     }
 
     /**
@@ -59,13 +63,15 @@ Class Cache {
      */
     function get($key,$type = 'file'){
 
-        if($type == 'memory') {
+        if($type == 'memory' && Scrawler::engine()->config['memcahe']['enabled']) {
             return $memcache->get($key);
         }
 
         if($type == 'file'){
             return unserialize(file_get_contents($this->location.$key.'.cache'));
         }
+
+        return false;
 
     }
 
