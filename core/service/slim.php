@@ -102,7 +102,14 @@ Class Slim {
             return $this->find();
         }
 
-        $model = R::dispense($this->model);
+        if (count($this->path_info)==3) {
+            $model = R::load($this->model,$this->path_info[2]);
+        }
+
+        if (count($this->path_info)==2) {
+            $model = R::dispense($this->model);
+        }
+           
         foreach($_POST as $property => $value){
             $model->$property = $value;
         }
