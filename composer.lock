@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "eftec/bladeone",
-            "version": "3.43",
+            "version": "3.44",
             "source": {
                 "type": "git",
                 "url": "https://github.com/EFTEC/BladeOne.git",
-                "reference": "32e31bc0ecac75df4789c3c4e5f6792987b88f6c"
+                "reference": "7300f8013850405fba0e914c60d33d687ba7ec14"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EFTEC/BladeOne/zipball/32e31bc0ecac75df4789c3c4e5f6792987b88f6c",
-                "reference": "32e31bc0ecac75df4789c3c4e5f6792987b88f6c",
+                "url": "https://api.github.com/repos/EFTEC/BladeOne/zipball/7300f8013850405fba0e914c60d33d687ba7ec14",
+                "reference": "7300f8013850405fba0e914c60d33d687ba7ec14",
                 "shasum": ""
             },
             "require": {
@@ -58,7 +58,7 @@
                 "templating",
                 "view"
             ],
-            "time": "2020-05-02T12:12:38+00:00"
+            "time": "2020-05-08T16:57:42+00:00"
         },
         {
             "name": "filp/whoops",
