@@ -10,7 +10,8 @@ namespace Scrawler\Service;
 
 use Scrawler\Scrawler;
 
-Class Cache {
+class Cache
+{
 
     /**
      * store memcache object
@@ -25,7 +26,8 @@ Class Cache {
     /**
      * Constructor overload
      */
-    function __construct(){
+    public function __construct()
+    {
         if (Scrawler::engine()->config['memcahe']['enabled']) {
             $this->memcache = new \Memcached();
             $this->memcache->addServer(Scrawler::engine()->config['memcahe']['host'], Scrawler::engine()->config['memcahe']['port']);
@@ -35,44 +37,42 @@ Class Cache {
 
     /**
      * store data to cache
-     * 
+     *
      * @param string $key the key to store
      * @param string $value the value to  store
-     * 
+     *
      * @return boolean success value
      */
-    function set($key,$value,$type='file'){
-
-        if($type  == 'file'){
+    public function set($key, $value, $type='file')
+    {
+        if ($type  == 'file') {
             return file_put_contents($this->location.$key.'.cache', serialize($value));
         }
 
-         if ($type == 'memory' &&  Scrawler::engine()->config['memcahe']['enabled']) {
-             return $this->memcache->set($key, $value);
-         }
+        if ($type == 'memory' &&  Scrawler::engine()->config['memcahe']['enabled']) {
+            return $this->memcache->set($key, $value);
+        }
 
-         return false;
+        return false;
     }
 
     /**
      * get data from memcache
-     * 
+     *
      * @param string $key the key  to get data from
-     * 
-     * @return string value stored in memcache 
+     *
+     * @return string value stored in memcache
      */
-    function get($key,$type = 'file'){
-
-        if($type == 'memory' && Scrawler::engine()->config['memcahe']['enabled']) {
+    public function get($key, $type = 'file')
+    {
+        if ($type == 'memory' && Scrawler::engine()->config['memcahe']['enabled']) {
             return $this->memcache->get($key);
         }
 
-        if($type == 'file'){
+        if ($type == 'file') {
             return unserialize(file_get_contents($this->location.$key.'.cache'));
         }
 
         return false;
-
     }
-
 }
