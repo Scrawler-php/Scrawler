@@ -88,7 +88,7 @@ class Scrawler
         $this->routeCollection = new RouteCollection(__DIR__.'/../app/controllers', 'App\Controllers');
         $this->dispatcher = new EventDispatcher();
         $this->module = new Module();
-        //$this->session  = new Session('kfenkfhcnbejd');
+        $this->session  = new Session('kfenkfhcnbejd');
         //templateing engine
         $views = __DIR__ . '/../app/views';
         $cache = __DIR__ . '/../cache/templates';
