@@ -9,38 +9,47 @@
 namespace Scrawler\Service;
 
 use Scrawler\Scrawler;
+use RedBeanPHP\Finder;
 
-class Database extends \R{
+class Database 
+{
+   private $toolbox;
+   private $finder;
 
     /**
-     * Initialize Readbead DB 
+     * Initialize Readbead DB
      * @return Database
      */
-    public static function new(){
-        self::setup('mysql:host='.Scrawler::engine()->config['database']['host'].';dbname='.Scrawler::engine()->config['database']['database'], Scrawler::engine()->config['database']['username'], Scrawler::engine()->config['database']['password']);
-        return new Self();
+    public function __construct()
+    {
+       \R::setup('mysql:host='.Scrawler::engine()->config['database']['host'].';dbname='.Scrawler::engine()->config['database']['database'], Scrawler::engine()->config['database']['username'], Scrawler::engine()->config['database']['password']);
+       $t = \R::getToolBox(); 
+       $this->toolbox = $t->getRedBean();
+       $this->finder = new Finder( $t );
     }
 
     /**
      * Create a Model
-     * 
+     *
      * @param $name name of model
-     * 
+     *
      * @return OODBBean bean instance
      */
-    public static function create($name){
-        return self::dispense($name);
+    public function create($name)
+    {
+        return $this->toolbox->dispense($name);
     }
     
     /**
      * Save Model to database
-     * 
+     *
      * @param OODBBean bean to save in your DB
-     * 
-     * @return int  id of stored object 
+     *
+     * @return int  id of stored object
      */
-    public static function save($model){
-        return self::store($model);
+    public function save($model)
+    {
+        return $this->toolbox->store($model);
     }
 
 
@@ -48,32 +57,61 @@ class Database extends \R{
      * Overriding get method to either get single or all records
      * if get is called call this else call parent override
      * Example use db()::get('users')
-     * 
-     * @param string name of model 
+     *
+     * @param string name of model
      * @param int id of model to retrive
-     * 
+     *
      * @return array|OODBBean all records matching query
      */
-    public static function __callStatic($name, $arguments) { 
+    public function __call($name, $arguments)
+    {
         if ($name == 'get') {
-            if(count($arguments) == 2)
-            return self::load($arguments[0], $arguments[1]);
-            if(count($arguments) == 1)
-            return self::findAll($arguments[0]);
+            if (count($arguments) == 2) {
+                return $this->toolbox->load($arguments[0], $arguments[1]);
+            }
+            if (count($arguments) == 1) {
+                return $this->toolbox->findAll($arguments[0]);
+            }
         }
-            return parent::__callStatic($name, $arguments);
-        
+        return \R::__callStatic($name, $arguments);
     }
 
     /**
      *  Delete a record
-     * 
+     *
      * @param OODBBean you want to remove from databse
-     * 
-     * @return void 
+     *
+     * @return void
      */
-    public static function delete($model){
-         return self::trash($model);
+    public  function delete($model)
+    {
+        return $this->toolbox->trash($model);
+    }
+
+    /**
+     *  Delete multiple records
+     *
+     * @param OODBBean you want to remove from databse
+     *
+     * @return void
+     */
+    public function deleteAll($models)
+    {
+        return $this->toolbox->trashAll($models);
+    }
+
+    /**
+     *  Find record
+     */
+    public function find($model,$query,$values=[]){
+        return $this->finder->find($model,$query,$values);
+    }
+
+     /**
+     *  Find single record
+     */
+    public function findOne($model,$query,$values=[]){
+        return $this->finder->findOne($model,$query,$values);
     }
 
 

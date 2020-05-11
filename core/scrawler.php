@@ -19,6 +19,7 @@ use Scrawler\Service\Database;
 use Scrawler\Service\Module;
 use Scrawler\Service\Template;
 use Scrawler\Service\Cache;
+use Scrawler\Service\Session;
 
 
 class Scrawler
@@ -50,7 +51,7 @@ class Scrawler
     /**
      * Stores the database
      */
-    private static $db;
+    private $db;
 
     /**
      * Stores cache object
@@ -69,6 +70,12 @@ class Scrawler
 
 
     /**
+     * Stores the session
+     */
+    private  $session;
+
+
+    /**
      * Initialize all the needed functionalities
      */
     public function __construct()
@@ -77,11 +84,11 @@ class Scrawler
         self::$scrawler = $this;
         $this->cache = new Cache();
         $this->request = Request::createFromGlobals();
-        self::$db = Database::new();
+        $this->db = new Database();
         $this->routeCollection = new RouteCollection(__DIR__.'/../app/controllers', 'App\Controllers');
         $this->dispatcher = new EventDispatcher();
         $this->module = new Module();
-       
+        //$this->session  = new Session('kfenkfhcnbejd');
         //templateing engine
         $views = __DIR__ . '/../app/views';
         $cache = __DIR__ . '/../cache/templates';
@@ -118,6 +125,15 @@ class Scrawler
     }
 
     /**
+     * Returns session object
+     * @return Object RouteCollection
+     */
+    public function &session()
+    {
+        return $this->session;
+    }
+
+    /**
      * Returns request object
      * @return Object Request
      */
@@ -139,8 +155,8 @@ class Scrawler
      * Returns database object
      * @return Object \Scrawler\Service\Database
      */
-    public static function &db(){
-        return self::$db;
+    public function &db(){
+        return $this->db;
     }
 
     /**
