@@ -2910,6 +2910,9 @@ class OODBBean implements\IteratorAggregate,\ArrayAccess,\Countable,Jsonable
 	 */
 	public function __call( $method, $args )
 	{
+		if($method == 'save'){
+			$this->beanHelper->getToolbox()->getRedBean()->store($this);
+		}
 		if ( empty( $this->__info['model'] ) ) {
 			return NULL;
 		}
