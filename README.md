@@ -23,4 +23,4 @@ Scrawler is a PHP framework for Rapid Application Development keeping high speed
 ## License
 
 Scrawler Router is created by [Pranjal Pandey](https://www.physcocode.com) and released under
-the MIT License.
+the apache 2.0 License.
