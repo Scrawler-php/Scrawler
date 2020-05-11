@@ -31,7 +31,7 @@ class Database
     /**
      * Create a Model
      *
-     * @param $name name of model
+     * @param String name of model
      *
      * @return OODBBean bean instance
      */
@@ -70,7 +70,7 @@ class Database
                 return $this->toolbox->load($arguments[0], $arguments[1]);
             }
             if (count($arguments) == 1) {
-                return $this->toolbox->findAll($arguments[0]);
+                return $this->finder->findAll($arguments[0]);
             }
         }
         return \R::__callStatic($name, $arguments);
