@@ -12,10 +12,8 @@ $whoops->register();
 //Build our main container
 $scrawler = new Scrawler\Scrawler();
 
-//helper function to get Scrawler instance
-function s(){
- return Scrawler\Scrawler::engine(); 
-}
+require __DIR__.'/helper.php';
+
 //Resolvers from the router component
 $controllerResolver = new ControllerResolver();
 $argumentResolver = new ArgumentResolver();

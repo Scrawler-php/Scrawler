@@ -167,15 +167,6 @@ class Scrawler
         return $this->template;
     }
 
-    /**
-     * Returns templating engine object
-     * @return Object \Scrawler\Service\Template
-     */
-    public function &t(){
-        return $this->template;
-    }
-
-
 
     /**
      * Returns scrawler class object
