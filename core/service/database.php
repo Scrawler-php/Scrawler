@@ -70,7 +70,7 @@ class Database
                 return $this->toolbox->load($arguments[0], $arguments[1]);
             }
             if (count($arguments) == 1) {
-                return $this->finder->findAll($arguments[0]);
+                return $this->finder->find($arguments[0],NULL,[]);
             }
         }
         return \R::__callStatic($name, $arguments);
