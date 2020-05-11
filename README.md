@@ -1,6 +1,4 @@
-<p align="center"><a href="https://corpusvision.com" target="_blank">
-    <img src="https://cdn.discordapp.com/attachments/682361422831026257/709503757804896337/scrawler2-01.svg">
-</a></p>
+<p align="center"><img src="https://cdn.discordapp.com/attachments/682361422831026257/709508006618071120/Scrawleer-PHP.svg" width="400"></p>
 
 About Scrawler Framework
 ------------------
