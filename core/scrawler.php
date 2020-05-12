@@ -10,7 +10,6 @@ namespace Scrawler;
 
 use Scrawler\Router\RouteCollection;
 use Scrawler\Router\RouterEngine;
-use Scrawler\Scrawler;
 use Symfony\Component\EventDispatcher\EventDispatcher;
 use Symfony\Component\EventDispatcher\Event;
 use Symfony\Component\HttpFoundation\Response;

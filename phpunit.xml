@@ -10,10 +10,10 @@
 
     <filter>
         <whitelist>
-            <directory>./core</directory>
+            <directory>./core/</directory>
             <exclude>
-                <directory>./tests</directory>
-                <directory>./vendor</directory>
+                <directory>./tests/</directory>
+                <directory>./vendor/</directory>
             </exclude>
         </whitelist>
     </filter>

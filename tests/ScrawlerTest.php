@@ -16,13 +16,11 @@ use Scrawler\Router\RouterEngine;
 class ScrawlerTest extends TestCase
 {
   function  testInstanceOf(){
-      $scrawler  = new Scrawler();
-      $this->assertInstanceOf(Cache::class, $scrawler::engine()->cache());
-      $this->assertInstanceOf(Router::class, $scrawler::engine()->router());
-      $this->assertInstanceOf(Session::class, $scrawler::engine()->session());
-      $this->assertInstanceOf(Mailer::class, $scrawler::engine()->mailer());
-      $this->assertInstanceOf(Template::class, $scrawler::engine()->template());
-      $this->assertInstanceOf(Database::class, $scrawler::engine()->database());
+      $this->assertInstanceOf(Cache::class, Scrawler::engine()->cache());
+      $this->assertInstanceOf(RouteCollection::class, Scrawler::engine()->router());
+      $this->assertInstanceOf(Session::class, Scrawler::engine()->session());
+      $this->assertInstanceOf(Template::class, Scrawler::engine()->template());
+      $this->assertInstanceOf(Database::class, Scrawler::engine()->db());
 
 
   }
