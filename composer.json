@@ -1,4 +1,15 @@
 {
+    "name":"Scrawler/Scrawler",
+    "description":"RAD and Modular PHP Framework",
+    "type":"project",
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "Pranjal Pandey",
+            "email": "pranjal@corpusvision.com",
+            "homepage": "https://github.com/physcocode",
+            "role": "Developer"
+        }],
     "require": {
         "symfony/event-dispatcher": "^4.1",
         "symfony/http-kernel": "^4.1",
