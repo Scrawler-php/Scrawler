@@ -20,6 +20,7 @@ use Scrawler\Service\Module;
 use Scrawler\Service\Template;
 use Scrawler\Service\Cache;
 use Scrawler\Service\Session;
+use Scrawler\Service\Mailer;
 
 
 class Scrawler
@@ -73,6 +74,12 @@ class Scrawler
      * Stores the session
      */
     private  $session;
+    
+
+    /**
+     * Stores the mailer
+     */
+    private  $mailer;
 
 
     /**
@@ -89,6 +96,7 @@ class Scrawler
         $this->dispatcher = new EventDispatcher();
         $this->module = new Module();
         $this->session  = new Session('kfenkfhcnbejd');
+        $this->mail = new Mailer(true);
         //templateing engine
         $views = __DIR__ . '/../app/views';
         $cache = __DIR__ . '/../cache/templates';
@@ -157,6 +165,14 @@ class Scrawler
      */
     public function &db(){
         return $this->db;
+    }
+    
+    /**
+     * Returns mailer object
+     * @return Object \Scrawler\Service\Mailer
+     */
+    public function &mailer(){
+        return $this->mailer;
     }
 
     /**
