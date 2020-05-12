@@ -1,6 +1,7 @@
 <?php
 namespace Tests;
 
+use PHPUnit\Framework\TestCase;
 use Scrawler\Scrawler;
 use Symfony\Component\HttpFoundation\Request;
 use Scrawler\Service\Database;
@@ -16,7 +17,13 @@ class ScrawlerTest extends TestCase
 {
   function  testInstanceOf(){
       $scrawler  = new Scrawler();
-      $this->assertInstanceOf(Cache::class, $scrawler->cache());
+      $this->assertInstanceOf(Cache::class, $scrawler::engine()->cache());
+      $this->assertInstanceOf(Router::class, $scrawler::engine()->router());
+      $this->assertInstanceOf(Session::class, $scrawler::engine()->session());
+      $this->assertInstanceOf(Mailer::class, $scrawler::engine()->mailer());
+      $this->assertInstanceOf(Template::class, $scrawler::engine()->template());
+      $this->assertInstanceOf(Database::class, $scrawler::engine()->database());
+
 
   }
 }
