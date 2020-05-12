@@ -17,3 +17,11 @@ function s(){
 function view($file,$vars){
     return Scrawler\Scrawler::engine()->template()->render($file,$vars); 
  }
+
+ /**
+  * Return Path Info
+  */
+  function url($path=''){
+        return Scrawler\Scrawler::engine()->request()->getSchemeAndHttpHost().Scrawler\Scrawler::engine()->request()->getBasePath().$path;
+
+  }
