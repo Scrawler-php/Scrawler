@@ -1,9 +1,9 @@
 <p align="center"><img src="https://cdn.discordapp.com/attachments/682361422831026257/709508006618071120/Scrawleer-PHP.svg" width="400"></p>
 <p align="center">
-  <a href="https://travis-ci.com/github/Corpusvision/Scrawler"><img alt="Travis (.com)" src="https://img.shields.io/travis/com/Corpusvision/Scrawler?style=flat-square"></a>
+  <a href="https://travis-ci.com/github/scrawler-php/scrawler"><img alt="Travis (.com)" src="https://img.shields.io/travis/com/scrawler-php/scrawler?style=flat-square"></a>
   <a href="https://packagist.org/packages/scrawler/scrawler"><img alt="Packagist Downloads" src="https://img.shields.io/packagist/dt/scrawler/scrawler?style=flat-square"></a>
- <a href="https://packagist.org/packages/scrawler/scrawler"> <img alt="GitHub release (latest SemVer including pre-releases)" src="https://img.shields.io/github/v/release/corpusvision/scrawler?include_prereleases"></a>
-  <a href="https://github.com/Corpusvision/Scrawler/blob/master/LICENSE"><img alt="GitHub" src="https://img.shields.io/github/license/Corpusvision/Scrawler?style=flat-square"></a>
+ <a href="https://packagist.org/packages/scrawler/scrawler"> <img alt="GitHub release (latest SemVer including pre-releases)" src="https://img.shields.io/github/v/release/scrawler-php/scrawler?include_prereleases"></a>
+  <a href="https://github.com/scrawler-php/scrawler/blob/master/LICENSE"><img alt="GitHub" src="https://img.shields.io/github/license/scrawler-php/scrawler?style=flat-square"></a>
 </p>
 
 ## About Scrawler Framework
