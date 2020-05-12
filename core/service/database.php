@@ -114,5 +114,17 @@ class Database
         return $this->finder->findOne($model,$query,$values);
     }
 
+    /**
+     *  Function to save data in model using request
+    *   @param OODBBean you want to remove from databse
+
+     */
+    public function saveRequest($model){
+        foreach(Scrawler::engine()->request()->all() as $key=>$value){
+            $model->$key  = $value;
+        }
+        return $this->save($model);
+    }
+
 
 }
