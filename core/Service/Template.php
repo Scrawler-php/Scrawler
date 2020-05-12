@@ -28,4 +28,35 @@ class Template extends BladeOne
     {
         return $this->run($view, $variables);
     }
+
+    /**
+     * Strips ('')  to  get the variable passed
+     */
+    private function strip($expression){
+       return substr($expression,2,-2);
+    }
+
+    /**
+     * Include css file from assets
+     */
+    public function compileCss($file){
+          $file = $this->strip($file);
+        return '<link rel="stylesheet" type="text/css" href="'.url('/assets/css/'.$file.'.css').'">';  
+    }
+
+    /**
+     * Include js file from assets
+     */
+    public function compileJs($file){
+        $file = $this->strip($file);
+        return '<script src="'.url('/assets/js/'.$file.'.js').'"></script>';
+    }
+
+    /**
+     * Get url of asset
+     */
+    public function compileAsset($file){
+        $file = $this->strip($file);
+        return url('/assets\/'.$file);
+    }
 }
