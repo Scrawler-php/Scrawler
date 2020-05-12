@@ -14,13 +14,13 @@ use Scrawler\Scrawler;
 use Symfony\Component\EventDispatcher\EventDispatcher;
 use Symfony\Component\EventDispatcher\Event;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\Request;
 use Scrawler\Service\Database;
 use Scrawler\Service\Module;
 use Scrawler\Service\Template;
 use Scrawler\Service\Cache;
 use Scrawler\Service\Session;
 use Scrawler\Service\Mailer;
+use Scrawler\Service\Http\Request;
 
 
 class Scrawler
