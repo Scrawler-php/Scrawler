@@ -12,18 +12,8 @@ Scrawler is a PHP framework for Rapid Application Development keeping high speed
 
 ## Usage
 
-1. `git clone git@github.com:Corpusvision/Scrawler.git`
-2. `composer install`
-
+1. To start a new project `composer create-project scrawler/scrawler project_name`
 2. Start writing your logic inside `/app/controllers` everything else would be taken care by framework itself!
-
-## Components used by scrawler framework:
-
-* Templating - Blade One (https://github.com/EFTEC/BladeOne) 
-* Routing - Scrawler Router (https://github.com/Corpusvision/Router)
-* Database - RedBean (https://github.com/gabordemooij/redbean) 
-* Caching - Memcache and file based caching 
-* Mailer - PHPMailer (https://github.com/PHPMailer/PHPMailer)
 
 
 ## License
