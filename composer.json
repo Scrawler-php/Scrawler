@@ -11,7 +11,7 @@
             "role": "Developer"
         }],
     "require": {
-        "scrawler/framework": "~2.0"
+        "scrawler/framework": "^2.0"
     },
     "autoload": {
        "psr-4": {
