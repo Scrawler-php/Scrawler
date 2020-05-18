@@ -6,6 +6,7 @@ if(\Scrawler\Slim::isSlim()){
     echo $slim->dispatch();
 }else{
     include __DIR__.'/vendor/autoload.php';
+    include __DIR__.'/bootstrap.php';
 }
 
 
