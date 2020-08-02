@@ -5,46 +5,46 @@ return [
 /**
  * General Configurations
  */
-'general' => [
-'env' => 'dev'
-],
+    'general' => [
+        'env' => 'dev',
+        'https' => false,
+    ],
 
 /**
  * Database Configuration
  */
-'database'=>[
+    'database' => [
 
-'host' => 'localhost',
-'database' => 'scrawler',
-'username' => 'root',
-'password' => 'root',
-'port' => '3306'
+        'host' => 'localhost',
+        'database' => '',
+        'username' => '',
+        'password' => '',
+        'port' => '3306',
 
-],
+    ],
 
 /**
  * If you are using memcached for caching
  */
-'memcahe'=>[
+    'memcahe' => [
 
-'enabled'  => 0,
-'host' => "127.0.0.1",
-'port' => "11211",
+        'enabled' => 0,
+        'host' => "127.0.0.1",
+        'port' => "11211",
 
-],
-
+    ],
 
 /**
  * Mailer Configuration
  */
-'mailer' => [
+    'mailer' => [
 
-'host' => 'smtp1.example.com',
-'secure' => 0,
-'username' => 'user@example.com',
-'password' =>'secret',
-'port' => "587"
+        'host' => '', 
+        'secure' => 0,
+        'username' => '',
+        'password' => '',
+        'port' => "",
 
-]
+    ],
 
 ];
