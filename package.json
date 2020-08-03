@@ -1,0 +1,50 @@
+{
+  "name": "scrawler",
+  "version": "1.0.0",
+  "description": "Vuejs support for Scrawler PHP",
+  "main": "webpack.config.js",
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {
+    "@babel/core": "^7.10.2",
+    "@babel/preset-env": "^7.10.2",
+    "axios": "^0.19.2",
+    "babel-loader": "^8.1.0",
+    "css-loader": "^3.6.0",
+    "sass-loader": "^8.0.2",
+    "stripe": "^8.63.0",
+    "style-loader": "^1.2.1",
+    "vue": "^2.6.11",
+    "vue-class-component": "^7.2.3",
+    "vue-loader": "^15.9.2",
+    "vue-property-decorator": "^8.5.0",
+    "vue-stripe-elements-plus": "^0.3.2",
+    "vue-template-compiler": "^2.6.11",
+    "vuex": "^3.4.0",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "devDependencies": {
+    "ts-loader": "^7.0.5",
+    "typescript": "^3.9.5",
+    "vuex-class": "^0.3.2",
+    "vuex-module-decorators": "^0.17.0"
+  },
+  "scripts": {
+    "dev": "webpack-dev-server --open --hot",
+    "build": "webpack --mode production --progress --hide-modules"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.com:corpusvision/it-inserts/vital-aire.git"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env"
+    ]
+  },
+  "author": "",
+  "license": "ISC"
+}
