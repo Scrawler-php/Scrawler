@@ -3,6 +3,6 @@ use Scrawler\Adapters\Storage\LocalAdapter;
 use Scrawler\Adapters\Session\DatabaseAdapter;
 
 return  [
-'storageAdapter' => StorageAdapter::class,
+'storageAdapter' => LocalAdapter::class,
 'sessionAdapter' => DatabaseAdapter::class
 ];
