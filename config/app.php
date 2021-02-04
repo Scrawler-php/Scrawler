@@ -8,6 +8,9 @@ return [
     'general' => [
         'env' => 'dev',
         'https' => false,
+        // This is a experimental feature and has security issues
+        // Turn on at your own risk
+        'autoAPI' => false,
     ],
 
 /**
@@ -39,7 +42,7 @@ return [
  */
     'mailer' => [
 
-        'host' => '', 
+        'host' => '',
         'secure' => 0,
         'username' => '',
         'password' => '',
