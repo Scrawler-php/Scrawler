@@ -11,8 +11,7 @@
             "role": "Developer"
         }],
     "require": {
-        "scrawler/framework": "^2.4",
-        "php-pm/httpkernel-adapter": "^2.0"
+        "scrawler/framework": "^2.4"
     },
     "autoload": {
        "psr-4": {
