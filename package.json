@@ -13,7 +13,6 @@
     "babel-loader": "^8.1.0",
     "css-loader": "^3.6.0",
     "sass-loader": "^8.0.2",
-    "stripe": "^8.63.0",
     "style-loader": "^1.2.1",
     "vue": "^2.6.11",
     "vue-class-component": "^7.2.3",
