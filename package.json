@@ -13,7 +13,7 @@
     "babel-loader": "^8.1.0",
     "css-loader": "^3.6.0",
     "sass-loader": "^8.0.2",
-    "style-loader": "^1.2.1",
+    "style-loader": "^4.0.0",
     "vue": "^2.6.11",
     "vue-class-component": "^7.2.3",
     "vue-loader": "^15.9.2",
