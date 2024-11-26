@@ -29,7 +29,7 @@
     "ts-loader": "^7.0.5",
     "typescript": "^3.9.5",
     "vuex-class": "^0.3.2",
-    "vuex-module-decorators": "^0.17.0"
+    "vuex-module-decorators": "^2.0.0"
   },
   "scripts": {
     "dev": "webpack-dev-server --open --hot",
